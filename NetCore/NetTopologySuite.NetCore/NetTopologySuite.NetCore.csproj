@@ -1,0 +1,118 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup Label="Configuration">
+    <AssemblyName>NetTopologySuite</AssemblyName>
+    <RootNamespace>NetTopologySuite</RootNamespace>
+    <DefineConstants>TRACE;DEBUG;PCL</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="**\*.cs" />
+    <EmbeddedResource Include="**\*.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\Angle.cs">
+      <Link>Angle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\BoundaryNodeRule.cs">
+      <Link>BoundaryNodeRule.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\CentralEndpointIntersector.cs">
+      <Link>CentralEndpointIntersector.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\Centroid.cs">
+      <Link>Centroid.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\CentroidArea.cs">
+      <Link>CentroidArea.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\CentroidLine.cs">
+      <Link>CentroidLine.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\CentroidPoint.cs">
+      <Link>CentroidPoint.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\CGAlgorithms.cs">
+      <Link>CGAlgorithms.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\CGAlgorithms3D.cs">
+      <Link>CGAlgorithms3D.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\CGAlgorithmsDD.cs">
+      <Link>CGAlgorithmsDD.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\ConvexHull.cs">
+      <Link>ConvexHull.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\HCoordinate.cs">
+      <Link>HCoordinate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\IndexedPointInAreaLocator.cs">
+      <Link>IndexedPointInAreaLocator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\InteriorPointArea.cs">
+      <Link>InteriorPointArea.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\InteriorPointLine.cs">
+      <Link>InteriorPointLine.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\InteriorPointPoint.cs">
+      <Link>InteriorPointPoint.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\IPointInAreaLocator.cs">
+      <Link>IPointInAreaLocator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\IPointInRing.cs">
+      <Link>IPointInRing.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\LineIntersector.cs">
+      <Link>LineIntersector.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\MCPointInRing.cs">
+      <Link>MCPointInRing.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\MinimumBoundingCircle.cs">
+      <Link>MinimumBoundingCircle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\MinimumDiameter.cs">
+      <Link>MinimumDiameter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\NonRobustCGAlgorithms.cs">
+      <Link>NonRobustCGAlgorithms.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\NonRobustLineIntersector.cs">
+      <Link>NonRobustLineIntersector.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\NotRepresentableException.cs">
+      <Link>NotRepresentableException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\PointLocator.cs">
+      <Link>PointLocator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\RayCrossingCounter.cs">
+      <Link>RayCrossingCounter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\RectangleLineIntersector.cs">
+      <Link>RectangleLineIntersector.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\RobustDeterminant.cs">
+      <Link>RobustDeterminant.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\RobustLineIntersector.cs">
+      <Link>RobustLineIntersector.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\SimplePointInAreaLocator.cs">
+      <Link>SimplePointInAreaLocator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\SimplePointInRing.cs">
+      <Link>SimplePointInRing.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetTopologySuite\Algorithm\SIRtreePointInRing.cs">
+      <Link>SIRtreePointInRing.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NETStandard.Library" Version="1.6" />
+  </ItemGroup>
+</Project>
