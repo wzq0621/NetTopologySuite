@@ -1,7 +1,5 @@
 using System;
-using System.Diagnostics;
 using GeoAPI.Geometries;
-using NetTopologySuite.Geometries;
 using NetTopologySuite.Utilities;
 
 namespace NetTopologySuite.IO
@@ -11,7 +9,8 @@ namespace NetTopologySuite.IO
 	/// </summary>
 	public class ShapefileHeader
 	{
-		private int _fileCode = Shapefile.ShapefileId;
+		private readonly int _fileCode = Shapefile.ShapefileId;
+
 		private int _fileLength = -1;
 		private int _version = 1000;
         private ShapeGeometryType _shapeType = ShapeGeometryType.NullShape;

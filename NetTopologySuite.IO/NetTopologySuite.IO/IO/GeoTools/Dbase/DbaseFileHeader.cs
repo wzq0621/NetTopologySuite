@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 using NetTopologySuite.IO.Streams;
@@ -60,6 +59,7 @@ namespace NetTopologySuite.IO
         {
             _encoding = encoding;
             _fieldDescriptions = new DbaseFieldDescriptor[0];
+            _updateDate = DateTime.Today;
         }
 
         /// <summary>
@@ -436,9 +436,13 @@ namespace NetTopologySuite.IO
                 //throw new InvalidOperationException("Must not write header when Encoding has not been set");
                 Encoding = DefaultEncoding;
 
+            // Update the update date
+            _updateDate = DateTime.Today;
+
             // write the output file type.
             writer.Write((byte)_fileType);
 
+            // write the (last) update date
             writer.Write((byte)(_updateDate.Year - 1900));
             writer.Write((byte)_updateDate.Month);
             writer.Write((byte)_updateDate.Day);

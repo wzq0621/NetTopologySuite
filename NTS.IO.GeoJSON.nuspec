@@ -15,13 +15,9 @@
 		<summary>GeoJSON IO library for NetTopologySuite</summary>
 		<tags>NTS GeoJSON</tags>
 		<language>en-US</language>
-		<frameworkAssemblies>
-			<frameworkAssembly assemblyName="System" targetFramework="" />
-			<frameworkAssembly assemblyName="System.Core" targetFramework="" />
-		</frameworkAssemblies>
 		<dependencies>
 			<dependency id="NetTopologySuite" version="[$version$]" />
-			<dependency id="Newtonsoft.Json" version="[9.0]" />
+			<dependency id="Newtonsoft.Json" version="[9.0,)" />
 		</dependencies>
 	</metadata>
 	<files>
@@ -49,10 +45,11 @@
     <file src="Release\PCL40\AnyCPU\NetTopologySuite.IO.GeoJSON.pdb" target="lib\portable-net40+sl5+wp80+win8+wpa81" />
     <file src="Release\PCL40\AnyCPU\NetTopologySuite.IO.GeoJSON.xml" target="lib\portable-net40+sl5+wp80+win8+wpa81" />
 
-<!--
-    <file src="Release\netStandard1.0\AnyCPU\NetTopologySuite.IO.GeoJSON.dll" target="lib\netStandard1.0" />
-    <file src="Release\netStandard1.0\AnyCPU\NetTopologySuite.IO.GeoJSON.pdb" target="lib\netStandard1.0" />
-    <file src="Release\netStandard1.0\AnyCPU\NetTopologySuite.IO.GeoJSON.xml" target="lib\netStandard1.0" />
--->
+    <file src="Release\netStandard1.0\NetTopologySuite.IO.GeoJSON.dll" target="lib\netStandard10" />
+    <file src="Release\netStandard1.0\NetTopologySuite.IO.GeoJSON.pdb" target="lib\netStandard10" />
+
+    <file src="Release\netStandard1.1\NetTopologySuite.IO.GeoJSON.dll" target="lib\netStandard11" />
+    <file src="Release\netStandard1.1\NetTopologySuite.IO.GeoJSON.pdb" target="lib\netStandard11" />
+
   </files>
 </package>

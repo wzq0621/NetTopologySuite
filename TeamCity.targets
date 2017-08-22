@@ -10,7 +10,7 @@
     <NuGetExePath Condition=" '$(NuGetExePath)' == '' ">$(MSBuildProjectDirectory)\BuildTools\NuGet.exe</NuGetExePath>
     <NuGetCommand Condition=" '$(OS)' == 'Windows_NT'">&quot;$(NuGetExePath)&quot;</NuGetCommand>
     <NuGetCommand Condition=" '$(OS)' != 'Windows_NT' ">mono --runtime=v4.0.30319 &quot;$(NuGetExePath)&quot;</NuGetCommand>
-		<geoAPIVersion Condition=" '$(geoAPIVersion)' == '' ">1.7.5-pre1</geoAPIVersion>
+	<geoAPIVersion Condition=" '$(geoAPIVersion)' == '' ">1.7.5-pre3</geoAPIVersion>
     <Configuration>Release</Configuration>
     <Platform>AnyCPU</Platform>
     <OutputPath>$(MSBuildProjectDirectory)\$(Configuration)\$(Platform)</OutputPath>
@@ -132,22 +132,24 @@
 	</Target>
 
 	<Target Name="RemoveProjectJson" Condition="!Exists('.\_pj_tmp_')">
-    <ItemGroup>
-			<JsonToRemove Include="NetTopologySuite\*.json" />
-		</ItemGroup>
-    <Message Text="Dateien zum Verschieben:
-@(JsonToRemove, ', ')" />
+    <ItemGroup><JsonToRemoveCore Include="NetTopologySuite\*.json" /></ItemGroup>
+	  <ItemGroup><JsonToRemoveJson Include="NetTopologySuite.IO.GeoJSON\*.json" /></ItemGroup>
     <MakeDir Directories=".\_pj_tmp_" />
-		<Move SourceFiles="@(JsonToRemove)" DestinationFolder=".\_pj_tmp_" />
+    <MakeDir Directories=".\_pj_tmp_\Core" />
+	  <MakeDir Directories=".\_pj_tmp_\GeoJSON" />
+	  <Message Text="Dateien zum Verschieben:
+@(JsonToRemoveCore, ', ')" />
+		<Move SourceFiles="@(JsonToRemoveCore)" DestinationFolder=".\_pj_tmp_\Core" />
+	  <Message Text="Dateien zum Verschieben:
+@(JsonToRemoveJson, ', ')" />
+	  <Move SourceFiles="@(JsonToRemoveJson)" DestinationFolder=".\_pj_tmp_\GeoJSON" />
   </Target>
 
 	<Target Name="RestoreProjectJson" Condition="Exists('.\_pj_tmp_')">
-		<ItemGroup>
-			<JsonToRestore Include="_pj_tmp_\*.json" />
-		</ItemGroup>
-    <Message Text="Dateien zum Verschieben:
-@(JsonToRestore, ', ')" />
-		<Move SourceFiles="@(JsonToRestore)" DestinationFolder=".\NetTopologySuite" />
+		<ItemGroup><JsonToRestoreCore Include="_pj_tmp_\Core\*.json" /></ItemGroup>
+	  <ItemGroup><JsonToRestoreJson Include="_pj_tmp_\Core\GeoJSON\*.json" /></ItemGroup>
+		<Move SourceFiles="@(JsonToRestoreCore)" DestinationFolder=".\NetTopologySuite" />
+	  <Move SourceFiles="@(JsonToRestoreJson)" DestinationFolder=".\NetTopologySuite.IO.GeoJSON" />
 		<RemoveDir Directories=".\_pj_tmp_" />
   </Target>
 
@@ -221,6 +223,8 @@
     <Exec Command="dotnet restore" />
     <Exec Command="dotnet build NetTopologySuite --framework netStandard1.0 -o $(SolutionDir)Release\netStandard1.0 -c Release --no-incremental" />
     <Exec Command="dotnet build NetTopologySuite --framework netStandard1.1 -o $(SolutionDir)Release\netStandard1.1 -c Release --no-incremental" />
+		<Exec Command="dotnet build NetTopologySuite.IO.GeoJSON --framework netStandard1.0 -o $(SolutionDir)Release\netStandard1.0 -c Release --no-incremental" />
+    <Exec Command="dotnet build NetTopologySuite.IO.GeoJSON --framework netStandard1.1 -o $(SolutionDir)Release\netStandard1.1 -c Release --no-incremental" />
   </Target>
 
 	<Target Name="NuGetPack" DependsOnTargets="RemoveProjectJson;RebuildRelease;BuildReleasePCL40;BuildReleasePCL;CallDotnet">
